@@ -1,0 +1,11 @@
+language: c
+compiler:
+    - gcc
+    - clang
+sudo: false
+env:
+  matrix:
+    - GCOV_FLAG=--enable-gcov
+    - GCOV_FLAG=
+script:
+    - ./autogen.sh && ./configure $GCOV_FLAG && make check
